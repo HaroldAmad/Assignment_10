@@ -18,6 +18,14 @@ def decoder(image):
         QRcodeInfo = obj.data.decode("utf-8")
         string = "Data " + str(QRcodeInfo)
         
+        currentTime = datetime.datetime.now(pytz.timezone('Asia/Manila'))
+        
+        with open ('ContactTracing.txt', 'w') as f:
+            f.write(str(QRcodeInfo))
+            
+        with open ('ContactTracing.txt', 'a') as f:
+            f.write(str(currentTime))
+        
         cv2.putText(frame, string, (x,y), cv2.FONT_ITALIC,0.8,(0,255,0), 2)
         print("Data: "+QRcodeInfo+"")
 
