@@ -16,7 +16,7 @@ def decoder(image):
         cv2.polylines(image, [pts], True, (0, 255, 0), 3)
 
         QRcodeInfo = obj.data.decode("utf-8")
-        string = "Data " + str(QRcodeInfo)
+        string = "Data" + str(QRcodeInfo)
         
         currentTime = datetime.datetime.now(pytz.timezone('Asia/Manila'))
         
